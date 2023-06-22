@@ -98,6 +98,14 @@ class _SignInPageState extends State<SignInPage> {
               CustomButton(
                 title: 'Sign In Now',
                 onPressed: () {
+                  if (emailController.text.isEmpty) {
+                    return showCustomSnackbar(
+                        context, 'Email tidak boleh kosong');
+                  }
+                  if (passwordController.text.isEmpty) {
+                    return showCustomSnackbar(
+                        context, 'Password tidak boleh kosong');
+                  }
                   if (formKey.currentState!.validate()) {
                     context.read<AuthBloc>().add(
                           AuthLogin(
@@ -111,8 +119,6 @@ class _SignInPageState extends State<SignInPage> {
                     //jika berhasil redirect ke home page
                     Navigator.pushNamedAndRemoveUntil(
                         context, '/home', (route) => false);
-                  } else {
-                    showCustomSnackbar(context, 'Semua field haurs diisi');
                   }
                 },
               ),

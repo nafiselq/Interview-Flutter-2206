@@ -137,6 +137,15 @@ class HomePage extends StatelessWidget {
               headerText(),
               articles(),
               cardArticles(),
+              // const SizedBox(height: 10),
+              // CustomButton(
+              //   title: 'Logout',
+              //   onPressed: () {
+              //     context.read<AuthBloc>().add(AuthLogout());
+              //     Navigator.pushNamedAndRemoveUntil(
+              //         context, '/sign-in', (route) => false);
+              //   },
+              // )
             ],
           ),
         ),
